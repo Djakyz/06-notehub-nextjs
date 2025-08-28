@@ -15,6 +15,7 @@ const NoteDetailsClient = () => {
     data: note,
     isLoading,
     isError,
+    error,
   } = useQuery({
     queryKey: ["note", id],
     queryFn: () => fetchNoteById(id),
@@ -39,7 +40,7 @@ const NoteDetailsClient = () => {
           </div>
         )}
         {isLoading && <Loader />}
-        {isError && <ErrorDetails />}
+        {isError && error && <ErrorDetails error={error} />}
       </Container>
     </Section>
   );
