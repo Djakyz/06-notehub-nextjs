@@ -8,6 +8,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import css from "./NoteDetails.module.css";
 import ErrorMessage from "@/components/ErrorMessage/ErrorMessage";
+import Error from "../error";
+import ErrorDetails from "./error";
 
 const NoteDetailsClient = () => {
   const { id } = useParams<{ id: string }>();
@@ -39,7 +41,7 @@ const NoteDetailsClient = () => {
           </div>
         )}
         {isLoading && <Loader />}
-        {isError && <ErrorMessage />}
+        {isError && <ErrorDetails />}
       </Container>
     </Section>
   );
