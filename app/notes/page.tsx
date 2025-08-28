@@ -11,7 +11,7 @@ import NotesClient from "./Notes.client";
 const Notes = async () => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
-    queryKey: ["tasks"],
+    queryKey: ["notes"],
     queryFn: () => fetchNotes(1, ""),
   });
   return (
